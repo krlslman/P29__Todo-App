@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { uid } from "uid";
+import './App.css';
 
 function App() {
   const [inputData, setInputData] = useState("");
@@ -67,9 +68,9 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header text-3xl mt-5 text-center">
-        TO DO APP
-        <div className="inputsection text-center">
+      <header className="App-header text-3xl mt-5 text-center  ">
+        <h1 className="bg-blue-300 font-bold text-violet-900 text-4xl p-3" > TO DO APP</h1>
+        <div className="inputsection text-center m-5 mb-9">
           <form action="" onSubmit={handlePostData}>
             <input
               type="text"
@@ -80,7 +81,7 @@ function App() {
             />
 
             <button
-              className=" bg-slate-700 m-5 rounded-lg pt-1 pb-1 pr-2 pl-2"
+              className=" bg-green-500 text-2xl rounded-lg pt-2 pb-2 pr-2 pl-2 ml-5 "
               type="submit"
             >
               Submit
@@ -96,10 +97,12 @@ function App() {
         <div className="display font-kanitT">
           {apiData?.map( //* ? işareti : dolu ise, opsiyonel. map hata vermemesi için.
             (i, index) => (
-              <div className="display-map flex ml-5" key={index}>
-                <div className="mr-5" onClick={() => setInputData(i.task)} > {i.id + " /  " + i.task + " /  " + i.date} </div>
-                <button className="bg-red-500 text-purple-600 rounded-xl p-1" onClick={() => handleDeleteData(i.id)} >Delete</button>
-                <button className="bg-blue-500 text-purple-600 rounded-xl p-1" onClick={() => handleUpdateData(i.id)} >Update</button>
+              <div className="display-map flex flex-row gap-2 mb-2 ml-96" key={index}>
+                <div className="mr-5 text-base text-gray-400" > {i.id + " -  "} </div>
+                <div className="bg-slate-100 w-96" onClick={() => setInputData(i.task)} > {i.task} </div>
+                <div className="text-base text-gray-400 pt-1.5"> {i.date} </div>
+                <button className="bg-red-500 rounded-xl p-2 ml-5 text-lg text-white" onClick={() => handleDeleteData(i.id)} >Delete</button>
+                <button className="bg-blue-500 rounded-xl p-2 ml-5 text-lg text-white" onClick={() => handleUpdateData(i.id)} >Update</button>
               </div>
             )
 
