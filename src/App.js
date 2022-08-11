@@ -10,7 +10,6 @@ function App() {
   const currentDate = new Date().toDateString() + " " + new Date().toLocaleTimeString();
   const u_uid = uid(4);
 
-  useEffect(() => {
     getData();
   }, []) //dependency array. bu array initial array.
 
@@ -95,7 +94,8 @@ function App() {
         </div>
 
         <div className="display font-kanitT">
-          {apiData?.map( //* ? işareti : dolu ise, opsiyonel. map hata vermemesi için.
+          {apiData?.map( 
+           //* ? işareti : dolu ise, opsiyonel. map hata vermemesi için.
             (i, index) => (
               <div className="display-map flex flex-row gap-2 mb-2 ml-96" key={index}>
                 <div className="mr-5 text-base text-gray-400" > {i.id + " -  "} </div>
